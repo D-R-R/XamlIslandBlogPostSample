@@ -1,4 +1,4 @@
-﻿<Page
+<Page
     x:Class="WpfApp1.CustomControlPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -16,6 +16,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Button Click="WPFButton_Click" Content="WPF Button" />
         <uwpHost:WindowsXamlHost
@@ -27,5 +28,8 @@
             x:Name="myCustomControl"
             Grid.Row="2"
             InitialTypeName="UWPClassLibrary.Controls.BlankPage1" />
-    </Grid>
+        <uwpHost:WindowsXamlHost
+            x:Name="uiDynamicUwpXaml"
+            Grid.Row="3" />
+  </Grid>
 </Page>
