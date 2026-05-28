@@ -10,7 +10,29 @@ namespace WpfApp1
         {
             InitializeComponent();
             uiDynamicUwpXaml.Child = (Windows.UI.Xaml.UIElement)Windows.UI.Xaml.Markup.XamlReader.Load(
-              "<StackPanel xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\"><Button>dynamic xaml!</Button><TextBox Text=\"stuff\" /><DatePicker /><TimePicker /></StackPanel>");
+              """
+              <UserControl
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:local="using:UWPClassLibrary"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  d:DesignHeight="300"
+                  d:DesignWidth="400"
+                  mc:Ignorable="d">
+
+                  <Grid Background="Red">
+                      <Grid.RowDefinitions>
+                          <RowDefinition Height="Auto" />
+                          <RowDefinition Height="*" />
+                          <RowDefinition Height="*" />
+                      </Grid.RowDefinitions>
+                      <TextBlock Text="Hi from UWP dynamic XAML!" />
+                      <DatePicker Grid.Row="1" />
+                      <TimePicker Grid.Row="2" />
+                  </Grid>
+              </UserControl>
+              """);
         }
 
         private void myUwpButton_ChildChanged(object sender, EventArgs e)
